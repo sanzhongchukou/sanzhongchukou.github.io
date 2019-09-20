@@ -4,12 +4,13 @@ menu:
   主页: /
   随笔: /tags/随笔/
 
+
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
+  github: "https://github.com/sanzhongchukou"
+  weibo: "https://weibo.com/1880259983"
+  rss: /atom.xml
+  #zhihu: "#"
   #qq: "#"
   #weixin: "#"
   #jianshu: "#"
