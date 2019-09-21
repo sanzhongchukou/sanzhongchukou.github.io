@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: HexoZpl的博客
-subtitle: 胆小认生，不易相处
+title: SanZpl的博客
+subtitle: 胆大心细，容易相处
 description: 长沙民政2012级，擅长java,python，深入研究技术，此为博客一枚。
 keywords: "前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验"
-author: San ZPL
+author: SanZpl
 language: zh-CN
 timezone:
 
@@ -74,7 +74,13 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-theme: yilia
+#theme: jacman
+#theme: yilia
+theme: next
+
+stylus:
+  compress: true
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -83,21 +89,4 @@ deploy:
   repository: git@github.com:sanzhongchukou/sanzhongchukou.github.io.git
   branch: master
 
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true
+
