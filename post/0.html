@@ -43,8 +43,8 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
@@ -55,19 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="面试1、讲下redis">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  <meta name="description" content="1、讲下redis">
+<meta name="keywords" content="SQL,Another Tag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SanZpl的博客">
-<meta property="og:url" content="https://sanzhongchukou.github.io/2019/09/21/面试/index.html">
+<meta property="og:title" content="redis持久化；RDB和AOF ">
+<meta property="og:url" content="https://sanzhongchukou.github.io/post/0.html">
 <meta property="og:site_name" content="SanZpl的博客">
-<meta property="og:description" content="面试1、讲下redis">
+<meta property="og:description" content="1、讲下redis">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T03:44:58.106Z">
+<meta property="og:updated_time" content="2019-09-21T13:46:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SanZpl的博客">
-<meta name="twitter:description" content="面试1、讲下redis">
-  <link rel="canonical" href="https://sanzhongchukou.github.io/2019/09/21/面试/">
+<meta name="twitter:title" content="redis持久化；RDB和AOF ">
+<meta name="twitter:description" content="1、讲下redis">
+  <link rel="alternate" href="/atom.xml" title="SanZpl的博客" type="application/atom+xml">
+  <link rel="canonical" href="https://sanzhongchukou.github.io/post/0">
 
 
 <script id="page-configurations">
@@ -81,7 +82,7 @@
   };
 </script>
 
-  <title> | SanZpl的博客</title>
+  <title>redis持久化；RDB和AOF  | SanZpl的博客</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -165,6 +166,39 @@
       
       
         
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-archives">
       
     
@@ -172,9 +206,36 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -199,7 +260,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://sanzhongchukou.github.io/2019/09/21/面试/">
+    <link itemprop="mainEntityOfPage" href="https://sanzhongchukou.github.io/post/0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SanZpl">
@@ -211,7 +272,7 @@
       <meta itemprop="name" content="SanZpl的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">redis持久化；RDB和AOF 
 
           
         </h1>
@@ -227,7 +288,32 @@
                 
               
 
-              <time title="创建时间：2019-09-21 11:44:58" itemprop="dateCreated datePublished" datetime="2019-09-21T11:44:58+08:00">2019-09-21</time>
+              <time title="创建时间：2019-09-20 21:46:19" itemprop="dateCreated datePublished" datetime="2019-09-20T21:46:19+08:00">2019-09-20</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 21:46:19" itemprop="dateModified" datetime="2019-09-21T21:46:19+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -242,7 +328,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p><strong>1、讲下redis</strong></p>
+        <p><strong>1、讲下redis</strong></p>
 <a id="more"></a>
 <p>答：非关系型数据库；本质上是一个key-value类型的内存数据库<br>支持String、Hash、List、Set、zset(sorted set:有序集合)这五种数据类型，redis持久化；RDB和AOF<br> RDB持久化是把当前进程数据生成快照保存到硬盘的过程，触发RDB持久化过程分为手动触发和自动触发<br>  AOF(append only file)持久化：以独立日志的方式记录每次写命令，重启时再重新执行AOF文件中命令达到恢复数据的目的。AOF的主要作用是解决了数据持久化的实时性，目前已经是Redis持久化的主流方式。<br><strong>redis架构模式</strong><br>单机版、主从复制、哨兵、集群<br><strong>redis相关的还有缓存雪崩和缓存穿透</strong><br> 缓存穿透：是指查询一个一定不存在的数据，由于缓存是不命中时需要从数据库查询，查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到数据库去查询，造成缓存穿透<br>    <strong>解决方法：</strong><br>一、布隆过滤<br>二、缓存空对象. 将 null 变成一个值<br>缓存雪崩：如果缓存集中在一段时间内失效，发生大量的缓存穿透，所有的查询都落在数据库上，造成了缓存雪崩。<br>解决方法：<br>一、数据预热，设置不同的过期时间，让缓存失效的时间点尽量均匀<br>二、做二级缓存，或者双缓存策略<br>三、加锁排队<br><strong>2、 讲下mysql，除了增删改查，mysql讲一下</strong><br>答：<br><strong>数据库优化</strong><br>首先要根据需求写出结构良好的SQL，然后根据SQL在表中建立有效的索引。但是如果索引太多，不但会影响写入的效率，对查询也有一定的影响<br>根据数据库三范式来进行表结构的设计。设计表结构时，就需要考虑如何设计才能更有效的查询。<br>mysql索引数据结构是B+树；<br><strong>索引优化方式</strong><br>避免过度索引<br>避免重复和冗余索引<br>删除不需要使用的索引<br>复合索需要引遵循最左原则<br>合理使用短索引<br>避免索引失效<br><strong>sql语句优化</strong><br>在表中建立索引，优先考虑where、group by使用到的字段<br>尽量避免使用select <em>，返回无用的字段会降低查询效率；优化方式：使用具体的字段代替</em>，只返回使用到的字段。<br>尽量避免使用in 和not in，会导致数据库引擎放弃索引进行全表扫描；优化方式：如果是连续数值，可以用between代替；如果是子查询，可以用exists代替；<br>尽量避免在where条件中等号的左侧进行表达式、函数操作，会导致数据库引擎放弃索引进行全表扫描。<br>尽量避免进行null值的判断，会导致数据库引擎放弃索引进行全表扫描，需求调节允许的话，可以给字段添加默认值0，对0值进行判断<br><strong>3、讲下索引数据结构</strong><br>答：mysql索引的数据结构是树，常用的存储引擎innodb采用的是B+Tree<br><strong>4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？</strong><br>session中<br><strong>5、Session 怎么实现信息共享？</strong><br><strong>6、讲下cookie和session</strong><br>答：cookie：<br>    在客户端保存数据，不安全，别人可以分析保存在本地的cookie进行cookie欺骗。<br>    只能保存字符串，且是少量数据<br>session：<br>    在服务端保存数据，安全<br>    可以保存对象数据，数据无限制（但，当访问过多，会比较占服务器的性能）<br>    一般情况下，session生成的sessionid都是保存在cookie中<br>    7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？<br><strong>8、联合索引</strong><br>答：如果你经常要用到多个字段的多条件查询，可以考虑建立联合索引，一般是除第一个字段外的其它字段不经常用于条件筛选情况，比如说a,b 两个字段，如果你经常用a条件或者a+b条件去查询，而很少单独用b条件查询，那么可以建立a,b的联合索引。如果a和b都要分别经常独立的被用作查询条件，那还是建立多个单列索引<br>9、你们实例有多少个？<br>该点属于部署问题<br>10、如果你写登录这模块的话，你的思路是怎样的？<br>11、说下你知道的数据结构<br>答：数组，栈，链表，队列，树，图，堆，散列表等<br>12、红黑树特点<br>13、平时有看专业相关书籍吗？说几个书名。<br>14、简历上的项目相关的问题，问写你的模块等等</p>
 
@@ -255,13 +341,24 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SQL/" rel="tag"># SQL</a>
+            
+              <a href="/tags/Another-Tag/" rel="tag"># Another Tag</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/20/使用hexo-github搭建免费个人博客详细教程/" rel="next" title="使用hexo+github搭建免费个人博客详细教程 ">
+                <a href="/post/cc73ba6b.html" rel="next" title="使用hexo+github搭建免费个人博客详细教程 ">
                   <i class="fa fa-chevron-left"></i> 使用hexo+github搭建免费个人博客详细教程 
                 </a>
               
@@ -318,8 +415,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试"><span class="nav-number">1.</span> <span class="nav-text">面试</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
@@ -338,7 +433,97 @@
         </a>
       </div>
     
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
   </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/sanzhongchukou" title="GitHub &rarr; https://github.com/sanzhongchukou" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:sanzhongchukou@gmail.com" title="E-Mail &rarr; mailto:sanzhongchukou@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/1880259983" title="Weibo &rarr; https://weibo.com/1880259983" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/sanzhongchukou" title="Twitter &rarr; https://twitter.com/sanzhongchukou" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://t.me/sanzhongchukou" title="Telegram &rarr; https://t.me/sanzhongchukou" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+      </span>
+    
+  </div>
 
 
 
@@ -403,6 +588,8 @@
 
 
 
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 
