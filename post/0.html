@@ -29,7 +29,7 @@
     version: '7.4.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -361,8 +361,22 @@
       
         <p>Only a person who has faith in himself is able to be faithful to others.<br>只有对自己有信心的人才会对他人守信。</p>
 <a id="more"></a>
-<p><strong>1、讲下redis</strong><br>答：非关系型数据库；本质上是一个key-value类型的内存数据库<br>支持String、Hash、List、Set、zset(sorted set:有序集合)这五种数据类型，redis持久化；RDB和AOF<br> RDB持久化是把当前进程数据生成快照保存到硬盘的过程，触发RDB持久化过程分为手动触发和自动触发<br>  AOF(append only file)持久化：以独立日志的方式记录每次写命令，重启时再重新执行AOF文件中命令达到恢复数据的目的。AOF的主要作用是解决了数据持久化的实时性，目前已经是Redis持久化的主流方式。<br><strong>redis架构模式</strong><br>单机版、主从复制、哨兵、集群<br><strong>redis相关的还有缓存雪崩和缓存穿透</strong><br> 缓存穿透：是指查询一个一定不存在的数据，由于缓存是不命中时需要从数据库查询，查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到数据库去查询，造成缓存穿透<br>    <strong>解决方法：</strong><br>一、布隆过滤<br>二、缓存空对象. 将 null 变成一个值<br>缓存雪崩：如果缓存集中在一段时间内失效，发生大量的缓存穿透，所有的查询都落在数据库上，造成了缓存雪崩。<br>解决方法：<br>一、数据预热，设置不同的过期时间，让缓存失效的时间点尽量均匀<br>二、做二级缓存，或者双缓存策略<br>三、加锁排队<br><strong>2、 讲下mysql，除了增删改查，mysql讲一下</strong><br>答：<br><strong>数据库优化</strong><br>首先要根据需求写出结构良好的SQL，然后根据SQL在表中建立有效的索引。但是如果索引太多，不但会影响写入的效率，对查询也有一定的影响<br>根据数据库三范式来进行表结构的设计。设计表结构时，就需要考虑如何设计才能更有效的查询。<br>mysql索引数据结构是B+树；<br><strong>索引优化方式</strong><br>避免过度索引<br>避免重复和冗余索引<br>删除不需要使用的索引<br>复合索需要引遵循最左原则<br>合理使用短索引<br>避免索引失效<br><strong>sql语句优化</strong><br>在表中建立索引，优先考虑where、group by使用到的字段<br>尽量避免使用select <em>，返回无用的字段会降低查询效率；优化方式：使用具体的字段代替</em>，只返回使用到的字段。<br>尽量避免使用in 和not in，会导致数据库引擎放弃索引进行全表扫描；优化方式：如果是连续数值，可以用between代替；如果是子查询，可以用exists代替；<br>尽量避免在where条件中等号的左侧进行表达式、函数操作，会导致数据库引擎放弃索引进行全表扫描。<br>尽量避免进行null值的判断，会导致数据库引擎放弃索引进行全表扫描，需求调节允许的话，可以给字段添加默认值0，对0值进行判断<br><strong>3、讲下索引数据结构</strong><br>答：mysql索引的数据结构是树，常用的存储引擎innodb采用的是B+Tree<br><strong>4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？</strong><br>session中<br><strong>5、Session 怎么实现信息共享？</strong><br><strong>6、讲下cookie和session</strong><br>答：cookie：<br>    在客户端保存数据，不安全，别人可以分析保存在本地的cookie进行cookie欺骗。<br>    只能保存字符串，且是少量数据<br>session：<br>    在服务端保存数据，安全<br>    可以保存对象数据，数据无限制（但，当访问过多，会比较占服务器的性能）<br>    一般情况下，session生成的sessionid都是保存在cookie中<br>    7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？<br><strong>8、联合索引</strong><br>答：如果你经常要用到多个字段的多条件查询，可以考虑建立联合索引，一般是除第一个字段外的其它字段不经常用于条件筛选情况，比如说a,b 两个字段，如果你经常用a条件或者a+b条件去查询，而很少单独用b条件查询，那么可以建立a,b的联合索引。如果a和b都要分别经常独立的被用作查询条件，那还是建立多个单列索引<br>9、你们实例有多少个？<br>该点属于部署问题<br>10、如果你写登录这模块的话，你的思路是怎样的？<br>11、说下你知道的数据结构<br>答：数组，栈，链表，队列，树，图，堆，散列表等<br>12、红黑树特点<br>13、平时有看专业相关书籍吗？说几个书名。<br>14、简历上的项目相关的问题，问写你的模块等等</p>
 
+<h4 id="1、讲下redis"><a href="#1、讲下redis" class="headerlink" title="1、讲下redis"></a><strong>1、讲下redis</strong></h4><p>答：非关系型数据库；本质上是一个key-value类型的内存数据库<br>支持String、Hash、List、Set、zset(sorted set:有序集合)这五种数据类型，redis持久化；RDB和AOF<br> RDB持久化是把当前进程数据生成快照保存到硬盘的过程，触发RDB持久化过程分为手动触发和自动触发<br>  AOF(append only file)持久化：以独立日志的方式记录每次写命令，重启时再重新执行AOF文件中命令达到恢复数据的目的。AOF的主要作用是解决了数据持久化的实时性，目前已经是Redis持久化的主流方式。</p>
+<h5 id="redis架构模式"><a href="#redis架构模式" class="headerlink" title="redis架构模式"></a><strong>redis架构模式</strong></h5><p>单机版、主从复制、哨兵、集群</p>
+<h5 id="redis相关的还有缓存雪崩和缓存穿透"><a href="#redis相关的还有缓存雪崩和缓存穿透" class="headerlink" title="redis相关的还有缓存雪崩和缓存穿透"></a><strong>redis相关的还有缓存雪崩和缓存穿透</strong></h5><p> 缓存穿透：是指查询一个一定不存在的数据，由于缓存是不命中时需要从数据库查询，查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到数据库去查询，造成缓存穿透</p>
+<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a><strong>解决方法：</strong></h5><p>一、布隆过滤<br>二、缓存空对象. 将 null 变成一个值<br>缓存雪崩：如果缓存集中在一段时间内失效，发生大量的缓存穿透，所有的查询都落在数据库上，造成了缓存雪崩。<br>解决方法：<br>一、数据预热，设置不同的过期时间，让缓存失效的时间点尽量均匀<br>二、做二级缓存，或者双缓存策略<br>三、加锁排队</p>
+<h4 id="2、-讲下mysql，除了增删改查，mysql讲一下"><a href="#2、-讲下mysql，除了增删改查，mysql讲一下" class="headerlink" title="2、 讲下mysql，除了增删改查，mysql讲一下"></a><strong>2、 讲下mysql，除了增删改查，mysql讲一下</strong></h4><p>答：</p>
+<h5 id="数据库优化"><a href="#数据库优化" class="headerlink" title="数据库优化"></a><strong>数据库优化</strong></h5><p>首先要根据需求写出结构良好的SQL，然后根据SQL在表中建立有效的索引。但是如果索引太多，不但会影响写入的效率，对查询也有一定的影响<br>根据数据库三范式来进行表结构的设计。设计表结构时，就需要考虑如何设计才能更有效的查询。<br>mysql索引数据结构是B+树；</p>
+<h5 id="索引优化方式"><a href="#索引优化方式" class="headerlink" title="索引优化方式"></a><strong>索引优化方式</strong></h5><p>避免过度索引<br>避免重复和冗余索引<br>删除不需要使用的索引<br>复合索需要引遵循最左原则<br>合理使用短索引<br>避免索引失效</p>
+<h5 id="sql语句优化"><a href="#sql语句优化" class="headerlink" title="sql语句优化"></a><strong>sql语句优化</strong></h5><p>在表中建立索引，优先考虑where、group by使用到的字段<br>尽量避免使用select <em>，返回无用的字段会降低查询效率；优化方式：使用具体的字段代替</em>，只返回使用到的字段。<br>尽量避免使用in 和not in，会导致数据库引擎放弃索引进行全表扫描；优化方式：如果是连续数值，可以用between代替；如果是子查询，可以用exists代替；<br>尽量避免在where条件中等号的左侧进行表达式、函数操作，会导致数据库引擎放弃索引进行全表扫描。<br>尽量避免进行null值的判断，会导致数据库引擎放弃索引进行全表扫描，需求调节允许的话，可以给字段添加默认值0，对0值进行判断</p>
+<h4 id="3、讲下索引数据结构"><a href="#3、讲下索引数据结构" class="headerlink" title="3、讲下索引数据结构"></a><strong>3、讲下索引数据结构</strong></h4><p>答：mysql索引的数据结构是树，常用的存储引擎innodb采用的是B+Tree</p>
+<h4 id="4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？"><a href="#4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？" class="headerlink" title="4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？"></a><strong>4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？</strong></h4><p>session中</p>
+<h4 id="5、Session-怎么实现信息共享？"><a href="#5、Session-怎么实现信息共享？" class="headerlink" title="5、Session 怎么实现信息共享？"></a><strong>5、Session 怎么实现信息共享？</strong></h4><h4 id="6、讲下cookie和session"><a href="#6、讲下cookie和session" class="headerlink" title="6、讲下cookie和session"></a><strong>6、讲下cookie和session</strong></h4><p>答：cookie：<br>    在客户端保存数据，不安全，别人可以分析保存在本地的cookie进行cookie欺骗。<br>    只能保存字符串，且是少量数据<br>session：<br>    在服务端保存数据，安全<br>    可以保存对象数据，数据无限制（但，当访问过多，会比较占服务器的性能）<br>    一般情况下，session生成的sessionid都是保存在cookie中 </p>
+<h4 id="7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？"><a href="#7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？" class="headerlink" title="7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？"></a>7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？</h4><h4 id="8、联合索引"><a href="#8、联合索引" class="headerlink" title="8、联合索引"></a><strong>8、联合索引</strong></h4><p>答：如果你经常要用到多个字段的多条件查询，可以考虑建立联合索引，一般是除第一个字段外的其它字段不经常用于条件筛选情况，比如说a,b 两个字段，如果你经常用a条件或者a+b条件去查询，而很少单独用b条件查询，那么可以建立a,b的联合索引。如果a和b都要分别经常独立的被用作查询条件，那还是建立多个单列索引</p>
+<h4 id="9、你们实例有多少个？"><a href="#9、你们实例有多少个？" class="headerlink" title="9、你们实例有多少个？"></a>9、你们实例有多少个？</h4><p>该点属于部署问题</p>
+<h4 id="10、如果你写登录这模块的话，你的思路是怎样的？"><a href="#10、如果你写登录这模块的话，你的思路是怎样的？" class="headerlink" title="10、如果你写登录这模块的话，你的思路是怎样的？"></a>10、如果你写登录这模块的话，你的思路是怎样的？</h4><h4 id="11、说下你知道的数据结构"><a href="#11、说下你知道的数据结构" class="headerlink" title="11、说下你知道的数据结构"></a>11、说下你知道的数据结构</h4><p>答：数组，栈，链表，队列，树，图，堆，散列表等</p>
+<h4 id="12、红黑树特点"><a href="#12、红黑树特点" class="headerlink" title="12、红黑树特点"></a>12、红黑树特点</h4><h4 id="13、平时有看专业相关书籍吗？说几个书名。"><a href="#13、平时有看专业相关书籍吗？说几个书名。" class="headerlink" title="13、平时有看专业相关书籍吗？说几个书名。"></a>13、平时有看专业相关书籍吗？说几个书名。</h4><h4 id="14、简历上的项目相关的问题，问写你的模块等等"><a href="#14、简历上的项目相关的问题，问写你的模块等等" class="headerlink" title="14、简历上的项目相关的问题，问写你的模块等等"></a>14、简历上的项目相关的问题，问写你的模块等等</h4>
     </div>
 
     
@@ -468,6 +482,9 @@
           </div>
           
 
+
+
+
         </div>
           
   
@@ -498,6 +515,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、讲下redis"><span class="nav-number">1.</span> <span class="nav-text">1、讲下redis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#redis架构模式"><span class="nav-number">1.1.</span> <span class="nav-text">redis架构模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#redis相关的还有缓存雪崩和缓存穿透"><span class="nav-number">1.2.</span> <span class="nav-text">redis相关的还有缓存雪崩和缓存穿透</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方法："><span class="nav-number">1.3.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、-讲下mysql，除了增删改查，mysql讲一下"><span class="nav-number">2.</span> <span class="nav-text">2、 讲下mysql，除了增删改查，mysql讲一下</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库优化"><span class="nav-number">2.1.</span> <span class="nav-text">数据库优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#索引优化方式"><span class="nav-number">2.2.</span> <span class="nav-text">索引优化方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sql语句优化"><span class="nav-number">2.3.</span> <span class="nav-text">sql语句优化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、讲下索引数据结构"><span class="nav-number">3.</span> <span class="nav-text">3、讲下索引数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？"><span class="nav-number">4.</span> <span class="nav-text">4、你登录了，但操作的时候有时候重定向，怎么确定是哪个用户登录的，登录的数据是从哪里取的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、Session-怎么实现信息共享？"><span class="nav-number">5.</span> <span class="nav-text">5、Session 怎么实现信息共享？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、讲下cookie和session"><span class="nav-number">6.</span> <span class="nav-text">6、讲下cookie和session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？"><span class="nav-number">7.</span> <span class="nav-text">7、你的搜索模块，你搜索的时候，执行流程是怎样的？就是从前端到后端再到前端的实现流程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、联合索引"><span class="nav-number">8.</span> <span class="nav-text">8、联合索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、你们实例有多少个？"><span class="nav-number">9.</span> <span class="nav-text">9、你们实例有多少个？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、如果你写登录这模块的话，你的思路是怎样的？"><span class="nav-number">10.</span> <span class="nav-text">10、如果你写登录这模块的话，你的思路是怎样的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、说下你知道的数据结构"><span class="nav-number">11.</span> <span class="nav-text">11、说下你知道的数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、红黑树特点"><span class="nav-number">12.</span> <span class="nav-text">12、红黑树特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、平时有看专业相关书籍吗？说几个书名。"><span class="nav-number">13.</span> <span class="nav-text">13、平时有看专业相关书籍吗？说几个书名。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、简历上的项目相关的问题，问写你的模块等等"><span class="nav-number">14.</span> <span class="nav-text">14、简历上的项目相关的问题，问写你的模块等等</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -511,7 +530,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -650,12 +669,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">9k</span>
+    <span title="站点总字数">18k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">16 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
@@ -721,6 +740,9 @@
 
 
   <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
 
 
 
