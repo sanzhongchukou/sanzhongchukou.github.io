@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SQL索引失效情况]]></title>
+    <url>%2Fpost%2Fc805a0c3.html</url>
+    <content type="text"><![CDATA[The young always have the same problem: how to rebel and conform at the same time. They have now solved this by defying their parents and copying one another.年轻人都会受到同一个问题的困扰：怎样在反抗的同时又保持顺从。这个问题现在得到了解决，他们在反抗父母，同时又相互模仿。 SQL索引失效情况1.对查询进行优化，要尽量避免全表扫描，首先考虑在进行条件判断的字段上创建索引。2.应尽量避免在WHERE子句中对字段进行NULL值判断，否则将导致引擎放弃使用索引而进行全表扫描。3.应尽量避免在WHERE子句中使用!=或&lt;&gt;操作符，否则引擎将放弃使用索引而进行全表扫描。4.应尽量避免在WHERE子句中使用OR来连接条件，如果一个字段有索引一个字段没有索引，将导致引擎放弃使用索引而进行全表扫描，要使用UNION ALL实现。5.NOT IN也要慎用，否则会导致全表扫描，很多时候用NOT EXISTS代替NOT IN是一个好的选择。6.模糊查询使用了%也将导致全表挺扫描（MYSQL），只在mysql失效，可以将用户可能输入的关键字使用下拉列表列出来，在数据库中使用全名查询，比如说：SELECT * FROM EMP WHERE JOB LIE ‘关键字’;。7.应尽量避免在WHERE子句中对字段进行表达式计算操作，这将导致引擎放弃使用索引而进行全表扫描。]]></content>
+      <categories>
+        <category>面试记录</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[三个步骤教你解决Microsoft Store无法联网问题]]></title>
     <url>%2Fpost%2Fd56f80d6.html</url>
     <content type="text"><![CDATA[The young always have the same problem: how to rebel and conform at the same time. They have now solved this by defying their parents and copying one another.年轻人都会受到同一个问题的困扰：怎样在反抗的同时又保持顺从。这个问题现在得到了解决，他们在反抗父母，同时又相互模仿。 在使用win10的过程中，有段时间需要使用应用商店，但总是会出现网络链接问题，本人百思不得其解，终于在某次偶然情况下发现一个解决办法，如果你也出现win10应用商店无法使用的情况，不妨测试一下这个方法。 一打开“运行”输入 inetcpl.cpl 或者“WINDOWS”+“R”键，输入 inetcpl.cpl亦可。 二点开高级往下拉，勾上”使用TLS 1.2”选项，或者点还原高级设置。 三打开Microsoft Store刷新页面可成功打开。]]></content>
