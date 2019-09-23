@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sanzhongchukou.github.io/"/>
-  <updated>2019-09-22T11:19:23.751Z</updated>
+  <updated>2019-09-23T03:30:07.116Z</updated>
   <id>https://sanzhongchukou.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>三个步骤教你解决Microsoft Store无法联网问题</title>
+    <link href="https://sanzhongchukou.github.io/post/d56f80d6.html"/>
+    <id>https://sanzhongchukou.github.io/post/d56f80d6.html</id>
+    <published>2019-09-23T02:45:20.000Z</published>
+    <updated>2019-09-23T03:30:07.116Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/post/d56f80d6/photo_2019-09-23_11-29-21.jpg&quot; alt=&quot;photo_2019-09-23_11-29-21&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The young always have the same problem: how to rebel and conform at the same time. They have now solved this by defying their parents and copying one another.&lt;br&gt;年轻人都会受到同一个问题的困扰：怎样在反抗的同时又保持顺从。这个问题现在得到了解决，他们在反抗父母，同时又相互模仿。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Win10系统" scheme="https://sanzhongchukou.github.io/categories/Win10%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="win10" scheme="https://sanzhongchukou.github.io/tags/win10/"/>
+    
+  </entry>
   
   <entry>
     <title>线程与死锁 + 面试题</title>
