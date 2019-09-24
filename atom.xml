@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sanzhongchukou.github.io/"/>
-  <updated>2019-09-23T12:18:04.459Z</updated>
+  <updated>2019-09-24T12:54:07.221Z</updated>
   <id>https://sanzhongchukou.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HashTable和HashMap区别</title>
+    <link href="https://sanzhongchukou.github.io/post/4f68c46e.html"/>
+    <id>https://sanzhongchukou.github.io/post/4f68c46e.html</id>
+    <published>2019-09-24T12:26:28.000Z</published>
+    <updated>2019-09-24T12:54:07.221Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A man is not old until regrets take the place of dreams.&lt;br&gt;当遗憾替代梦想的时候，人开始变老。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="面试记录" scheme="https://sanzhongchukou.github.io/categories/%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="map" scheme="https://sanzhongchukou.github.io/tags/map/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL索引失效情况</title>
